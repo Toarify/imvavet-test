@@ -102,7 +102,8 @@ class ArticleCrudController extends AbstractCrudController
             $fields[] = TextField::new('createdBy', 'Créé par')
             ->setVirtual(true)
             ->formatValue(function ($value, $entity) {
-                return $entity->getCreatedBy() ? (string)$entity->getCreatedBy()->getFirstname() : 'Aucun(e)';
+                $user = $entity->getCreatedBy();
+                return $user ? $user->getFirstname() . ' ' . $user->getLastname() : 'Aucun(e)';
             });
 
             $fields[] = DateTimeField::new('createdAt')
@@ -118,10 +119,11 @@ class ArticleCrudController extends AbstractCrudController
             //     ->setCustomOption('linkable', false); // Désactive le lien
 
             $fields[] = TextField::new('updatedBy', 'Modifié par')
-            ->setVirtual(true)
-            ->formatValue(function ($value, $entity) {
-                return $entity->getUpdatedBy() ? $entity->getUpdatedBy()->getFirstname() : 'Aucun(e)';
-            });
+    ->setVirtual(true)
+    ->formatValue(function ($value, $entity) {
+        $user = $entity->getUpdatedBy();
+        return $user ? $user->getFirstname() . ' ' . $user->getLastname() : 'Aucun(e)';
+    });
 
             $fields[] = DateTimeField::new('updatedAt')
                 ->setLabel('Date de modification')

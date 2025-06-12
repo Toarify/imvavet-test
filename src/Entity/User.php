@@ -138,8 +138,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-        public function __toString(): string
+    public function __toString(): string
     {
-        return $this->firstname ?? 'Utilisateur sans nom'; // Fallback si name est null
+        if ($this->firstname && $this->lastname) {
+            return $this->firstname . ' ' . $this->lastname;
+        }
+        if ($this->firstname) {
+            return $this->firstname;
+        }
+        if ($this->lastname) {
+            return $this->lastname;
+        }
+        return 'Utilisateur sans nom';
     }
 }
