@@ -1,0 +1,56 @@
+{# Étend le layout de base d'EasyAdmin #}
+{% extends '@!EasyAdmin/layout.html.twig' %}
+
+{# Charge le JS de TinyMCE depuis le CDN #}
+{% block head_javascript %}
+    {{ parent() }}
+    {# <script src="https://cdn.tiny.cloud/1/sritjjsb7ksz8fy9je1h6g1d0ww9f86wsts9x081ljgt622e/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> #}
+    
+    <script src="{{ asset('tinymce/tinymce.min.js') }}"></script>
+    
+{% endblock %}
+
+{# Initialise TinyMCE sur les textarea avec la classe 'ea-tinymce' #}
+{% block body_javascript %}
+    {{ parent() }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    tinymce.init({
+        selector: 'textarea',
+        language: 'fr_FR',
+        language_url: '{{ asset("tinymce/langs/fr_FR.js") }}', // Chemin corrigé
+	branding: false,   // Désactive "Build with TinyMCE" en bas à droite
+        promotion: false,  // Désactive "💝 Get all features" en haut à droite
+        statusbar: false,  // (Optionnel) Masque toute la barre du bas
+        plugins: 'advlist autolink lists charmap preview anchor table',
+        toolbar: 'styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | table',
+        style_formats: [
+            { title: 'Texte', items: [
+                { title: 'Titre 1', format: 'h1' },
+                { title: 'Titre 2', format: 'h2' },
+                { title: 'Titre 3', format: 'h3' },
+                { title: 'Paragraphe', format: 'p' }
+            ]},
+            { title: 'Alignement', items: [
+                { title: 'Gauche', format: 'alignleft' },
+                { title: 'Centre', format: 'aligncenter' },
+                { title: 'Droite', format: 'alignright' },
+                { title: 'Justifié', format: 'alignjustify' }
+            ]}
+        ],
+        skin: 'oxide',
+        width: 1000,
+        height: 300,
+        setup: function(editor) {
+            editor.on('change', function() {
+                editor.save();
+            });
+        }
+    });
+
+    document.querySelector('form').addEventListener('submit', function() {
+        tinymce.triggerSave();
+    });
+});
+    </script>
+{% endblock %}

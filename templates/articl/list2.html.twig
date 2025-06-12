@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Tous les Articles {% endblock %}
+
+{% block body %}
+
+<main class="flex-grow">
+    <div class="flex flex-col ">
+        <div class="relative mt-4 flex-1">  
+            <h1>Liste des Articles</h1>
+            
+            {# Barre de navigation #}
+            <nav>
+                <ul style="display: flex; list-style: none; gap: 20px; padding: 0;">
+                    <li><a href="{{ path('articles_list', {type: 'all'}) }}" style="text-decoration: none; color: {{ activeType == 'all' ? 'red' : 'black' }}">Tous</a></li>
+                    <li><a href="{{ path('articles_list', {type: 'national'}) }}" style="text-decoration: none; color: {{ activeType == 'national' ? 'red' : 'black' }}">National</a></li>
+                    <li><a href="{{ path('articles_list', {type: 'international'}) }}" style="text-decoration: none; color: {{ activeType == 'international' ? 'red' : 'black' }}">International</a></li>
+                </ul>
+            </nav>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                {% for article in articles %}
+                    <div style="border: 1px solid #ddd; padding: 10px; width: 300px;">
+                        <h2>{{ article.name|raw }}</h2>
+                        {% if article.articleImages is not empty %}
+                            {% for image in article.articleImages %}
+                                <img src="{{ asset('uploads/images/article/' ~ image.imageName) }}" alt="Image de l'article" style="max-width: 100%;">
+                            {% endfor %}
+                        {% else %}
+                            <p>Aucune image disponible.</p>
+                        {% endif %}
+                        <a href="{{ path('article_show', {id: article.id}) }}">Voir l'article</a>
+                    </div>
+                {% else %}
+                    <p>Aucun article trouvé.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

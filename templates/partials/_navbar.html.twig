@@ -1,0 +1,221 @@
+<!-- Navbar div -->
+        <nav id="navbar" class="bg-green-500 md:bg-transparent md:flex md:mt-3">
+            <!-- Logo and close Button div-->
+            <div id="logobar" class="flex h-[50px] items-center justify-between px-2 md:w-1/4 md:justify-center">
+                <img src="/assets/images/logo-4d5fc9000ef81c3cca8e11cbb27c8cf8.svg" alt="IMVAVET logo" class=" w-12 md:w-16 h-auto">
+                <!-- Bouton de menu avec Font Awesome -->
+                <button id="CloseOpenButton" class= "md:hidden pr-2">
+                    <!-- SVG pour l'icône "menu" -->
+                    <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <!-- SVG pour l'icône "close" -->
+                    <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 22" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 hidden">
+                        <!-- Bordure carrée autour de l'icône -->
+                        <!-- Croix (X) -->
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15L15 5M5 5l10 10" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Menu div -->
+            <div id="menu" class="z-20 duration-995 invisible absolute w-full transform bg-blue-700 md:bg-transparent px-2 md:px-0 opacity-0 transition-all md:visible md:static md:flex md:w-3/4 items-center md:opacity-100">
+                <div class="md:flex md:items-center md:justify-center w-auto md:w-2/3 md:gap-4 mx-4 md:mx-0 ">
+                    <!-- All Menu1-->
+                    <div class="md:border md:bg-blue-800 cursor-pointer items-center md:flex md:px-[15px] my-4 md:my-0 md:rounded-full md:gap-[2vw] space-y-4 md:space-y-0">
+                        <div id="menua"  class="text-white">
+                            <p class="hover:text-red-600" onclick="window.location.href='{{path('app_home') }}'">Accueil</p>
+                        </div>
+                       
+                        <div id="menu1"  class="text-white">
+                            <div class="md:my-2">
+                                <p class="inline-flex items-center">Organigramme <svg class="-mr-1 size-5 text-gray-400 mt-[2px]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                                        <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg></p>
+                            </div>
+                            
+                            <div id="submenu1" class="hidden bg-gray-800 px-2 md:absolute ml-8 md:ml-0 space-y-0 md:mt-1 space-y-2 py-2 rounded-lg inline-block">
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='#'">DAF</div>
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='#'">DepCom</div>
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='#'">DPP</div>
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='#'">DRCQ</div>
+                            </div>
+                        </div>
+
+                         <div id="menua"  class="text-white">
+                            <p class="">Actualités</p>
+                        </div>
+                        
+                        <div id="menu2" class="text-white">
+                            <div class="md:my-2">
+                                <p class="inline-flex items-center">Activités <svg class="-mr-1 size-5 text-gray-400 mt-[2px]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                                        <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg></p>
+                            </div>
+                            <div id="submenu2" class="hidden bg-gray-800 px-2 md:absolute ml-8 md:ml-0 space-y-0 md:mt-1 space-y-2 py-2 rounded-lg inline-block">
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='#'">Laboratoires</div>
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='#'">Recherches</div>
+                            </div>
+                        </div>
+
+                        <div id="menu3" class="text-white">
+                            <div class="md:my-2">
+                                <p class="inline-flex items-center">Produits <svg class="-mr-1 size-5 text-gray-400 mt-[2px]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+                                        <path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                </svg></p>
+                            </div>
+                            <div id="submenu3" class="hidden bg-gray-800 px-2 md:absolute ml-8 md:ml-0 space-y-0 md:mt-1 space-y-2 py-2 rounded-lg inline-block">
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='{{path('app_product') }}'">Vaccins</div>
+                                <div class=" cursor-pointer rounded hover:bg-blue-800 md: px-2" onclick="window.location.href='{{path('articles_list') }}'">Publications</div>
+                            </div>
+                        </div>  
+                        
+                        <div id="menu3" class="text-white whitespace-nowrap truncate" onclick="window.location.href='{{path('app_about') }}'">
+                            <p>A propos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connexion Boutton -->
+                <div class=" flex justify-center md:w-1/3 gap-[10vw] md:gap-[2vw] items-center my-2 md:my-0">
+                    <i class="fa fa-sign-in text-white text-xl cursor-pointer" aria-hidden="true"></i>
+                    <i class="fa-solid fa-user text-white text-xl cursor-pointer"></i>
+                </div>
+            </div>
+        </nav>
+
+        {#<script src="{{ asset('js/navbar.js') }}"></script>#}
+        <script>
+            
+    document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.getElementById("menu");
+    const menu1 = document.getElementById("menu1");
+    const menu2 = document.getElementById("menu2");
+    const menu3 = document.getElementById("menu3");
+
+    const submenu1 = document.getElementById("submenu1");
+
+    const menuIcon = document.getElementById("menuIcon");
+    const closeIcon = document.getElementById("closeIcon");
+
+    const button = document.getElementById("CloseOpenButton");
+
+    const mainsection = document.getElementById("mainsection");
+
+    // Fonction pour détecter le type d'appareil
+    function detectedDevice() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      if (/android/i.test(userAgent)) return "Android";
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) return "iOS";
+      if (/windows phone/i.test(userAgent)) return "Windows Phone";
+
+      return "Desktop";
+    }
+
+    // Gestion de l'ouverture/fermeture du menu
+    button.addEventListener("click", () => {
+    if (menuIcon.classList.contains("hidden")) {
+      menuIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
+    } else {
+      menuIcon.classList.add("hidden");
+      closeIcon.classList.remove("hidden");
+    }
+
+    if (menu.classList.contains("opacity-0")) {
+      menu.classList.remove("opacity-0", "invisible");
+      menu.classList.add("opacity-100", "visible", "translate-y-0");
+    } else {
+      menu.classList.add("opacity-0", "invisible");
+      menu.classList.remove("opacity-100", "visible", "translate-y-0");
+    }
+    
+  });
+
+  // Gestion des sous-menus
+  function setupSubmenuHandlers() {
+    const device = detectedDevice();
+    console.log("Device detected:", device);
+
+    // Nettoyer les écouteurs précédents
+    menu1.replaceWith(menu1.cloneNode(true));
+    menu2.replaceWith(menu2.cloneNode(true));
+    menu3.replaceWith(menu3.cloneNode(true));
+    const newMenu1 = document.getElementById("menu1");
+    const newSubmenu1 = document.getElementById("submenu1");
+    const newMenu2 = document.getElementById("menu2");
+    const newSubmenu2 = document.getElementById("submenu2");
+    const newMenu3 = document.getElementById("menu3");
+    const newSubmenu3 = document.getElementById("submenu3");
+    
+    if (device === "Desktop") {
+      // Desktop: Utiliser les événements hover
+      //--Menu 1
+      newMenu1.addEventListener("mouseenter", () => {
+            newSubmenu1.classList.remove("hidden");
+            newSubmenu2.classList.add("hidden");
+            newSubmenu3.classList.add("hidden");
+      });
+      newSubmenu1.addEventListener("mouseleave", () => {
+            newSubmenu1.classList.add("hidden");
+      });
+      //--Menu 2
+      newMenu2.addEventListener("mouseenter", () => {
+            newSubmenu2.classList.remove("hidden");
+            newSubmenu1.classList.add("hidden");
+            newSubmenu3.classList.add("hidden");
+      });
+      newSubmenu2.addEventListener("mouseleave", () => {
+            newSubmenu2.classList.add("hidden");
+      });
+
+      //--Menu 3
+      newMenu3.addEventListener("mouseenter", () => {
+            newSubmenu3.classList.remove("hidden");
+            newSubmenu1.classList.add("hidden");
+            newSubmenu2.classList.add("hidden");
+      });
+      newSubmenu3.addEventListener("mouseleave", () => {
+            newSubmenu3.classList.add("hidden");
+      });
+      
+    } else {
+        // Mobile/Tablet: Utiliser les événements click
+        // Menu 1
+        newMenu1.addEventListener("click", () => {
+            newSubmenu1.classList.toggle("hidden");
+            newSubmenu2.classList.add("hidden");
+            newSubmenu3.classList.add("hidden");
+        });
+
+        // Menu 2
+        newMenu2.addEventListener("click", () => {
+            newSubmenu2.classList.toggle("hidden");
+            newSubmenu1.classList.add("hidden");
+            newSubmenu3.classList.add("hidden");
+        });
+
+        // Menu 3
+        newMenu3.addEventListener("click", () => {
+            newSubmenu3.classList.toggle("hidden");
+            newSubmenu1.classList.add("hidden");
+            newSubmenu2.classList.add("hidden");
+        });
+    }
+  }
+
+  // Gestion du redimensionnement ou changement d'orientation
+  function handleResize() {
+    setupSubmenuHandlers(); // Réinitialise les écouteurs selon le contexte
+  }
+
+  window.addEventListener("resize", handleResize);
+  window.addEventListener("orientationchange", handleResize);
+
+  // Initialisation
+  handleResize();
+});
+
+
+        </script>

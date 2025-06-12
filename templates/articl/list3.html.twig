@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles{% endblock %}
+
+{% block body %}
+ 
+<div class="tab-section bg-gray-100 p-5 rounded-lg backdrop-filter backdrop-blur-lg bg-opacity-40 w-full max-w-6xl mx-auto min-h-[400px] border-2 border-indigo-200">
+    <!-- Boutons de navigation -->
+    <div class="flex flex-wrap gap-1 justify-center">
+      <button class="p-4 rounded-lg text-gray-700 font-bold hover:bg-gray-300 hover:bg-opacity-40 flex-grow sm:w-1/3 w-full" data-tab-target="#tab1">Tous</button>
+      <button class="p-4 rounded-lg font-bold hover:bg-gray-300 hover:bg-opacity-40 text-gray-700 flex-grow sm:w-1/3 w-full" data-tab-target="#tab2">National</button>
+      <button class="p-4 rounded-lg font-bold hover:bg-gray-300 hover:bg-opacity-40 text-gray-700 flex-grow sm:w-1/3 w-full" data-tab-target="#tab3">International</button>
+    </div>
+
+    <div class="mt-4">
+        <!-- Contenu des onglets -->
+        {% for tab, articlesList in { '#tab1': articles, '#tab2': articlesType1, '#tab3': articlesType2 } %}
+            <div id="{{ tab|slice(1) }}" class="hidden tab-content text-gray-700">
+                {% if articlesList is not empty %}
+                <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {% for article in articlesList %}
+                        <li class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-bold">{{ article.name }}</p>
+                            {% if article.articleImages is not empty %}
+                                {% for image in article.articleImages %}
+                                    <img src="{{ asset('uploads/images/article/' ~ image.imageName) }}" alt="Image de l'article" class="w-full h-40 object-cover mt-2 rounded">
+                                {% endfor %}
+                            {% else %}
+                                <p class="text-sm text-gray-500">Aucune image disponible.</p>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p class="text-center">Aucun article trouvé.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('[data-tab-target]');
+    const activeClass = 'bg-indigo-200';
+
+    if (tabs.length === 0) return;
+
+    // Réinitialisation de la classe active
+    tabs.forEach(tab => tab.classList.remove(activeClass));
+
+    // Sélectionne l'onglet par défaut
+    tabs[0].classList.add(activeClass);
+    document.querySelector('#tab1').classList.remove('hidden');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetContent = document.querySelector(tab.dataset.tabTarget);
+
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+            targetContent.classList.remove('hidden');
+
+            document.querySelectorAll('.bg-indigo-200').forEach(activeTab => activeTab.classList.remove(activeClass));
+            tab.classList.add(activeClass);
+        });
+    });
+});
+</script>
+
+{% endblock %}

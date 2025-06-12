@@ -1,0 +1,472 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}imvavet{% endblock %}
+
+{% block body %}
+    <main id="main" data-name="title" class="bg-blue-900 min-h-[100vh]">
+        <div class="w-full max-w-6xl mx-auto bg-white rounded shadow mt-10 md:mt-20">
+            <!-- Onglets -->
+            <div class="w-full max-w-6xl mx-auto bg-white rounded shadow">
+                <!-- Onglets -->
+                <div class="flex flex-wrap border-b">
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab1"
+                    >
+                        Tous les vaccins
+                    </button>
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab2"
+                    >
+                        Aviaire
+                    </button>
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab3"
+                    >
+                        Porcine
+                    </button>
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab4"
+                    >
+                        Canine
+                    </button>
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab5"
+                    >
+                        Ruminant
+                    </button>
+                </div>
+                <!-- Contenus -->
+                <div class="p-4">
+                    <div class="tab-content hidden" id="tab1">    
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div>
+                                <a href="{{path('app_technicalsheet') }}" class="inline-block">
+                                    <img src="{{ asset('images/vaccins/avichol.jpg') }}" 
+                                        alt="Logo" 
+                                        class="rounded-lg shadow mb-2 hover:scale-105 transition-transform duration-300" 
+                                        style="width:200px; height:auto;" />
+                                </a>
+
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        AVICHOL
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <img src="{{ asset('images/vaccins/bicharcoli.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        BICHARCOLI
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                             <div>
+                                <img src="{{ asset('images/vaccins/varavia.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        VARAVIA
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/bichar3.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        BICHAR
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/pestavia.png') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        PESTAVIA
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                             <div>
+                                <img src="{{ asset('images/vaccins/besorovax.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        BESOROVAX
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/pneumoporc.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        PNEUMOPORC
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <img src="{{ asset('images/vaccins/ramjivax.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        RAMJIVAX
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <img src="{{ asset('images/vaccins/sovaxteschen.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        SOVAXTESCHEN
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/caprichar.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        CAPRICHAR
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/lyorab.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        LYORAB
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/i2-pestakoho2.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <h2 class = "text-center">I2-PESTAKOHO</h2>
+                            </div>
+                           
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content hidden" id="tab2">
+                        <div class="flex flex-wrap gap-2 justify-center">
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/avichol.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        AVICHOL
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/pestavia.png') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        PESTAVIA
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/varavia.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        VARAVIA
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                             <div>
+                                <img src="{{ asset('images/vaccins/i2-pestakoho2.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <h2 class = "text-center">I2-PESTAKOHO</h2>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-content hidden" id="tab3">
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div>
+                                <img src="{{ asset('images/vaccins/pneumoporc.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        PNEUMOPORC
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <img src="{{ asset('images/vaccins/ramjivax.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        RAMJIVAX
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <img src="{{ asset('images/vaccins/sovaxteschen.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        SOVAXTESCHEN
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-content hidden" id="tab4">
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div>
+                                <img src="{{ asset('images/vaccins/lyorab.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        LYORAB
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content hidden" id="tab5">
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <div>
+                                <img src="{{ asset('images/vaccins/besorovax.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        BESOROVAX
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/bichar3.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        BICHAR
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/bicharcoli.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        BICHARCOLI
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="{{ asset('images/vaccins/caprichar.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                                <div class="text-center">
+                                    <a href="#" class="flex justify-center">
+                                        CAPRICHAR
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3 fill-current" viewBox="0 0 24 24">
+                                                    <path fill="fill-current" d="M12.13 2c-5.514 0-10 4.486-10 10s4.486 10 10 10 10-4.486 10-10-4.486-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.588 8-8 8z"></path>
+                                                    <path fill="fill-current" d="M16.13 10c0-1.654-1.346-3-3-3h-5v10h2v-4h1.465l2.667 4h2.404l-2.746-4.119A2.995 2.995 0 0 0 16.13 10zm-6-1h3a1 1 0 0 1 0 2h-3V9z"></path>
+                                                </svg>
+                                            </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recomandations -->
+        <div class="w-full max-w-6xl mx-auto bg-white rounded shadow my-4">
+            <div class="px-2 flex items-center justify-center text-center h-16 font-bold">
+                Nos recommandations
+            </div>
+            <div class="px-3 md:px-6 text-justify indent-8 pb-1 md:pb-4">
+                <p>Tous les vaccins et réactifs livrés par nos laboratoires ont subi des contrôles d’innocuité, d’efficacité et de
+                    thermostabilité avant leur sortie, ceci pour offrir l’assurance qualité à notre clientèle.
+                    Toutefois, une conservation défectueuse peut en altérer la qualité entre la livraison et l’utilisation. En règle
+                    générale, tous nos produits doivent être conservés à la température du réfrigérateur (+4°C à +8°C) et à l’abri de
+                    la lumière.
+                    Il est donc recommandé aux utilisateurs de suivre strictement les indications données quant au mode de
+                    conservation, à la limite de péremption, à la technique d’utilisation des vaccins et aux rappels indispensables de
+                    vaccination.
+                    Il est demandé à tout utilisateur qui observerait une anomalie quelconque après l’inoculation d’un de ces vaccins
+                    d’en informer aussitôt le fournisseur, en indiquant le numéro du lot et les observations détaillées qui ont été
+                    faites à son sujet.
+                    Pour toutes informations supplémentaires, veuillez s’adresser à Ampandrianomby-Antananarivo ou aux
+                    Vétérinaires ou Responsables les plus proches.</p>
+            </div>
+        </div>
+
+    </main>
+
+     <script>
+    // Initialisation des onglets
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      // Fonction pour afficher un onglet
+      function showTab(tabId) {
+        tabContents.forEach((content) => {
+          content.classList.add("hidden");
+        });
+        document.getElementById(tabId).classList.remove("hidden");
+
+        tabButtons.forEach((button) => {
+          button.classList.remove("border-blue-500", "text-blue-500");
+        });
+        document.querySelector(`[data-tab="${tabId}"]`).classList.add("border-blue-500", "text-blue-500");
+      }
+
+      // Gestion des clics
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const tabId = this.getAttribute("data-tab");
+          showTab(tabId);
+        });
+      });
+
+      // Afficher le premier onglet par défaut
+      showTab("tab1");
+    });
+  </script>
+{% endblock %}

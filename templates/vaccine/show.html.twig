@@ -1,0 +1,203 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %} {{ vaccine.name|striptags }}{% endblock %} #}
+
+{# {% block title %}
+    {{ vaccine.name|striptags|replace({'&reg;': '®'})|trim }}
+{% endblock %} #}
+
+{% block title %}
+    {{ vaccine.cleanName|raw }}
+{% endblock %}
+
+{% block body %}
+    <div class=" flex-grow cursor-default flex flex-col items-center ">
+
+        <h1 class="flex justify-between gap-x-2 font-extrabold p-4" >
+            <p>FICHE TECHNIQUE </p>
+            <span>{{ vaccine.name|raw }}</span>
+        </h1>
+
+        <div class="flex flex-col items-center">
+            {% if vaccine.vaccineDetails %}
+                <div class="pb-2 md:flex">
+                    <div class="flex flex-col items-center relative overflow-hidden">
+                        {% if vaccine.vaccineImages is not empty %}
+                            <div class="relative w-72 h-80" id="imageSlider">
+                                {% for image in vaccine.vaccineImages %}
+                                    <img src="{{ asset('uploads/images/vaccine/' ~ image.imageName) }}" alt="Image de l'article" class="absolute rounded rounded-md inset-0 max-w-full h-full object-cover opacity-0 transition-opacity duration-500 rounded-8">
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p>Aucune image disponible.</p>
+                        {% endif %}
+                    </div>
+
+                    {% if vaccine.vaccineDetails.autorisation is not null and vaccine.vaccineDetails.autorisation != '' %}
+                        <div class="m-4 flex flex-col items-center justify-center gap-y-4">
+                            <p><strong>AUTORISATION DE MISE SUR LE MARCHÉ :</strong> </p>
+                            <div class="bg-yellow-500 px-2 rounded">
+                                {{ vaccine.vaccineDetails.autorisation|raw }}
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            
+                <div class="flex items-center justify-center font-bold p-4">
+                    {% if vaccine.vaccineDetails.presentation is not null and vaccine.vaccineDetails.presentation != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.presentation|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="text-teal-700 p-2">
+                                {{ vaccine.vaccineDetails.presentation|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                </div> 
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center mx-auto max-w-4xl px-2 py-4">
+                    
+                    {% if vaccine.vaccineDetails.farmaceticalForm is not null and vaccine.vaccineDetails.farmaceticalForm != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.farmaceticalForm|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Forme pharmaceutique :</strong> {{ vaccine.vaccineDetails.farmaceticalForm|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    
+                    
+                    {% if vaccine.vaccineDetails.compositionDose is not null and vaccine.vaccineDetails.compositionDose != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.compositionDose|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Composition par dose :</strong> {{ vaccine.vaccineDetails.compositionDose|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% if vaccine.vaccineDetails.inicationContre is not null and vaccine.vaccineDetails.inicationContre != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.inicationContre|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Contre indication :</strong> {{ vaccine.vaccineDetails.inicationContre|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if vaccine.vaccineDetails.secondEffect is not null and vaccine.vaccineDetails.secondEffect != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.secondEffect|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Effet secondaire :</strong> {{ vaccine.vaccineDetails.secondEffect|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    
+                    
+                    {% if vaccine.vaccineDetails.manual is not null and vaccine.vaccineDetails.manual != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.manual|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Manuel :</strong> {{ vaccine.vaccineDetails.manual|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if vaccine.vaccineDetails.indication is not null and vaccine.vaccineDetails.indication != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.indication|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Indication :</strong> {{ vaccine.vaccineDetails.indication|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if vaccine.vaccineDetails.precationUse is not null and vaccine.vaccineDetails.precationUse != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.precationUse|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Précaution d'emploi :</strong> {{ vaccine.vaccineDetails.precationUse|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% if vaccine.vaccineDetails.concervation is not null and vaccine.vaccineDetails.concervation != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.concervation|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Concervation :</strong> {{ vaccine.vaccineDetails.concervation|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if vaccine.vaccineDetails.waitTime is not null and vaccine.vaccineDetails.waitTime != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.waitTime|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Delais d'attente :</strong> {{ vaccine.vaccineDetails.waitTime|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                    
+                    {% if vaccine.vaccineDetails.rappel is not null and vaccine.vaccineDetails.rappel != '' %}
+                        {% set stripped_rappel = vaccine.vaccineDetails.rappel|striptags %}
+                        {% set no_html_content = stripped_rappel|trim %}
+                        {% if no_html_content != '' %}
+                            <div class="border border-teal-700 p-2 rounded text-left">
+                                <strong>Rappel :</strong> {{ vaccine.vaccineDetails.rappel|raw }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                </div>
+
+
+            {% else %}
+                <p>Aucun détail disponible pour cet vaccine.</p>
+            {% endif %}
+        </div>
+        
+        <button class="m-4 p-2 bg-teal-700 border border-blue-500 rounded "><a href="{{ path('app_vaccines') }}">Retour à la liste</a></button>
+    </div>
+    
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll("#imageSlider img");
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        // Fonction pour faire défiler les images
+        function slideImages() {
+            // Masquer toutes les images
+            images.forEach((img) => {
+                img.classList.add("opacity-0");
+            });
+
+            // Afficher l'image actuelle
+            images[currentIndex].classList.remove("opacity-0");
+
+            // Passer à l'image suivante
+            currentIndex = (currentIndex + 1) % totalImages;
+        }
+
+        // Initialiser la première image comme visible immédiatement
+        images[currentIndex].classList.remove("opacity-0");
+
+        // Démarrer le diaporama avec un intervalle de 2000 ms (après l'affichage immédiat)
+        setInterval(slideImages, 2500);
+    });
+</script>
+
+
+{% endblock %}
+

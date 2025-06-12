@@ -1,0 +1,24 @@
+{% if pageCount > 1 %}
+<div class="flex justify-center space-x-2 my-8">
+    {% if previous is defined %}
+        <a class="px-4 py-2 bg-white border rounded-lg hover:bg-gray-100" 
+           href="{{ path(route, query|merge({(pageParameterName): previous})) }}">
+            &lt;&lt; {# Remplace "Précédent" par "<<" #}
+        </a>
+    {% endif %}
+
+    {% for page in pagesInRange %}
+        <a class="px-4 py-2 {% if page == current %} bg-red-600 text-blue-500 border {% else %}bg-white border hover:bg-gray-100{% endif %} rounded-lg"
+           href="{{ path(route, query|merge({(pageParameterName): page})) }}">
+            {{ page }}
+        </a>
+    {% endfor %}
+
+    {% if next is defined %}
+        <a class="px-4 py-2 bg-white border rounded-lg hover:bg-gray-100"
+           href="{{ path(route, query|merge({(pageParameterName): next})) }}">
+             &gt;&gt; {# Remplace "Suivant" par ">>" #}
+        </a>
+    {% endif %}
+</div>
+{% endif %}

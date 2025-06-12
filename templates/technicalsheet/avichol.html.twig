@@ -1,0 +1,118 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TechnicalsheetController!{% endblock %}
+
+{% block body %}
+<main id="main" data-name="title" class="bg-blue-900 min-h-[100vh]">
+        {% include 'partials/_navbar.html.twig' %}
+        <div class="w-full max-w-6xl mx-auto bg-white rounded shadow mt-10 md:mt-20 mb-2">
+            <div class="flex justify-center font-bold">
+                <h2>FICHE TECHIQUES : AVICHOL</h2>
+            </div>
+            <div class="flex flex-wrap border-2 p-4 justify-center items-center">
+                <img src="{{ asset('images/vaccins/avichol.jpg') }}" alt="Logo" class= "rounded-lg shadow mb-2"style="width:200px; height:auto;" />
+                <div class=" flex flex-col justify-center items-center h-32 pl-0 md:pl-4">
+                    <div>USAGE VÉTÉRINAIRE</div>
+                    <div class="text-center rounded bg-yellow-200  md:px-4 ">Autorisation de Mise sur le Marché (AMM) n°00.201.8.011</div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center font-bold">
+                <h3 class = "text-xl text-blue-500 px-2">Vaccin inactivé aluné contre la pasteurellose aviaire</h3>
+            </div>
+
+            <div class="flex flex-wrap rounded justify-center p-4 gap-1">
+                
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Forme pharmaceutique</div>
+                    <div class= "px-2 md:px-4">
+                        Suspension injectable.
+                    </div>
+                </div>
+
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Manuel</div>
+                    <div class= "px-2 md:px-4">
+                        <ul>
+                            <li>Bien agiter le flacon avant l'emploi.</li>
+                            <li>Dose: 1 ml. En sous cutanée.</li>
+                            <li>Age de vaccination: à partir de 4 semaines.</li>
+                            <li>Rappel: tous les trois (3) mois.</li>
+                            <li>Ne pas mélanger avec le vaccin PESTAVIA<sup>®</sup></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Compositions par dose</div>
+                    <div class= "px-2 md:px-4">
+                        <ul>
+                            <li>5 x 10<sup>9</sup> germes de <em>P. multocida</em>, sérotype A<sub>7</sub>&nbsp;tués</li>
+                            <li>5 x 10<sup>9</sup> souche locale<em> P. multocida</em> KA<sub>3</sub>&nbsp;tués</li>
+                            <li>5 x 10<sup>9</sup> souche locale <em>P. multocida</em> E<sub>97</sub>&nbsp;tués&nbsp;</li>
+                            <li>Excipients q.s.p. 1 ml.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Indication</div>
+                    <div class= "px-2 md:px-4">
+                        Protection des gallinacés et des palmipèdes contre le choléra aviaire.
+                    </div>
+                </div>
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Contre indication</div>
+                    <div class= "px-2 md:px-4">
+                        Ne pas vacciner les animaux malades, en état de déficience immunitaire, et les jeunes de moins de quatre semaines.
+                    </div>
+                </div>
+
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Precaution d'emploi</div>
+                    <div class= "px-2 md:px-4">
+                        <div class="space-y-2">
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-300 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="5"></circle>
+                                </svg>
+                                <p class="ml-3">
+                                De mauvaises conditions de conservation ou d'emploi peuvent provoquer une perte d'activité.
+                                </p>
+                            </div>
+                            <div class="flex items-start">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-300 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="5"></circle>
+                                </svg>
+                                <p class="ml-3">
+                                De mauvaises conditions de conservation ou d'emploi peuvent provoquer une perte d'activité.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Effets secondaire</div>
+                    <div class= "px-2 md:px-4">
+                        <p>Parfois, on peut observer un petit nodule au point d'injection qui se résorbe facilement au bout d'une semaine. Pas de complication majeure chez les animaux correctement vaccinés.</p>
+                    </div>
+                </div>
+
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Conservation</div>
+                    <div class= "px-2 md:px-4">
+                        <p>(6) six mois après la date de fabrication et conserver à +4°C.</p>
+                    </div>
+                </div>
+
+                <div class="border rounded w-full md:w-[45%] ">
+                    <div class="flex justify-center font-bold underline">Delais d'attente</div>
+                    <div class= "px-2 md:px-4">
+                        <p>Au bout de vingt quatre heures (24h).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+    
+{% endblock %}

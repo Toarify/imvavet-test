@@ -1,0 +1,22 @@
+{% extends '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig' %}
+
+{% block pagination %}
+    <div class="pagination-container {{ align|default('') }}">
+        <ul class="pagination {{ style|default('') }}">
+            {% if current != first %}
+                {{ block('previous_link') }}
+            {% endif %}
+
+            {{ block('page_links') }}
+
+            {% if current != last %}
+                {{ block('next_link') }}
+            {% endif %}
+        </ul>
+
+        {# Affichage du numéro de page courant #}
+        <div class="text-center mt-2 text-gray-600">
+            Page <span class="font-bold">{{ current }}</span> / {{ last }}
+        </div>
+    </div>
+{% endblock %}

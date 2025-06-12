@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitialiser votre mot de passe{% endblock %}
+
+{% block body %}
+
+    <main class="flex-grow flex items-center justify-center">
+        <div class="border border-gray-100 m-1 rounded bg-gray-300 shadow-xl p-4 md:w-[30vw]">
+            
+            <div class="flex items-center justify-center h-full w-full">
+                    <h1 class="mb-4 text-2xl font-bold">Réinitialiser votre mot de passe</h1>
+                </div>
+            <div>
+                {{ form_start(resetForm) }}
+
+                    <div class="grid grid-cols-[max-content,1fr] gap-4 w-full">
+                        <div>Nouveau mot de passe :</div>
+                        <div class="form-group">
+                            {{ form_widget(resetForm.plainPassword.first, {
+                                'attr': {
+                                    'class': 'form-control border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 w-full p-1 rounded'
+                                }
+                            }) }}
+                            {% if resetForm.plainPassword.first.vars.errors|length > 0 %}
+                                <div class="invalid-feedback text-red-500">
+                                    {{ form_errors(resetForm.plainPassword.first) }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div>Confirmer mot de passe :</div>
+
+                        <div class="form-group">
+                            {{ form_widget(resetForm.plainPassword.second, {
+                                'attr': {
+                                    'class': 'form-control border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 w-full p-1 rounded'
+                                }
+                            }) }}
+                            {% if resetForm.plainPassword.second.vars.errors|length > 0 %}
+                                <div class="invalid-feedback text-red-500">
+                                    {{ form_errors(resetForm.plainPassword.second) }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                    <div class="flex justify-center pt-4 pb-2">
+                        <button class="btn btn-lg btn-primary bg-blue-500 m-2 px-6 py-1 rounded mx-auto">Réinitialiser mot de passe</button>
+                    </div>
+                    
+                {{ form_end(resetForm) }}
+            </div>
+
+        </div>
+    </main>
+    
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordFields = document.querySelectorAll('input[type="password"]');
+
+            passwordFields.forEach(function(field) {
+                const formGroup = field.closest('.form-group');
+                const errorDiv = formGroup.querySelector('.invalid-feedback');
+
+                // Vérifie si une erreur existe et applique la bordure rouge
+                if (errorDiv && errorDiv.innerText.trim() !== '') {
+                    field.classList.add('border-red-500', 'focus:border-red-500');
+                }
+
+                field.addEventListener('focus', function() {
+                    // Cache les erreurs au clic
+                    if (errorDiv) {
+                        errorDiv.style.display = 'none';
+                    }
+                    // Réinitialise la bordure au focus
+                    field.classList.remove('border-red-500', 'focus:border-red-500');
+                    field.classList.add('border-gray-300', 'focus:border-blue-500');
+                });
+
+                field.addEventListener('blur', function() {
+                    // Si le champ est vide après avoir perdu le focus et qu'il y avait une erreur, remettre la bordure rouge
+                    if (errorDiv && errorDiv.innerText.trim() !== '' && field.value.trim() === '') {
+                        field.classList.add('border-red-500', 'focus:border-red-500');
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

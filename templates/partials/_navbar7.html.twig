@@ -1,0 +1,169 @@
+<div class="flex justify-between items-center bg-blue-900 md:bg-blue-900 relative">
+    <a href="{{ path('app_home') }}" class="ml-[8vw]">
+        <img src="/assets/images/logo-4d5fc9000ef81c3cca8e11cbb27c8cf8.svg" alt="IMVAVET logo" class=" w-12 md:w-16 h-auto">
+    </a>
+    
+    <!-- Bouton pour afficher/masquer le menu -->
+    <button id="CloseOpenButton" class="md:hidden pr-2 m-8" >
+        <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+        <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 22" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 hidden">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15L15 5M5 5l10 10" />
+        </svg>
+    </button>
+
+    <!-- Sous-menu principal -->
+    <ul id="menu" class="hidden px-8 md:flex items-center md:space-x-[2vw] peer-checked:block absolute md:relative top-full left-0 bg-blue-900 z-10 w-full md:w-auto list-none">
+        <li class = "h-10 md:h-16 md:hover:underline underline-offset-8 text-gray-500 hover:text-white px-2 flex items-center shadow-xl md:shadow-none">
+            <a href="{{ path('app_home') }}">Acceuil</a>
+        </li>
+        <!-- Menu "Produits" avec group pour hover en desktop -->
+        <li class="relative group shadow-xl md:shadow-none">
+            <input type="checkbox" id="pay" class="hidden peer">
+            <label for="pay" class="h-10 md:h-16   text-gray-500 hover:text-white px-2 md:hover:underline underline-offset-8 flex items-center cursor-pointer block w-full">Organigramme</label>
+            <!-- Sous-menu : Visible au hover en desktop & au clic en mobile -->
+            <div class="hidden peer-checked:block md:group-hover:block space-y-4 md:space-y-2 md:rounded-tr md:rounded-b bg-white border px-4 py-2 md:absolute md:top-full md:left-0 shadow-xl">
+                <div>
+                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 text-black hover:text-blue-500 whitespace-nowrap">Directions</a>
+                </div>
+                <div>
+                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Departement Admnistratif et Financier</a>
+                </div>
+                <div>
+                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Departement commercial</a>
+                </div>
+                <div>
+                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Departement production et Partenariat</a>
+                </div>
+                <div>
+                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Departement Recherche et controle qualité</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Menu "Produits" avec group pour hover en desktop -->
+        <li class="relative group shadow-xl md:shadow-none">
+            <input type="checkbox" id="actu" class="hidden peer">
+            <label for="actu" class="h-10 md:h-16   text-gray-500 hover:text-white px-2 md:hover:underline underline-offset-8 flex items-center cursor-pointer block w-full">Actualité</label>
+
+            <!-- Sous-menu : Visible au hover en desktop & au clic en mobile -->
+            <div class="hidden peer-checked:block md:group-hover:block space-y-4 md:space-y-2 md:rounded-tr md:rounded-b bg-white px-4 py-2 md:absolute md:top-full md:left-0 shadow-xl">
+                <div>
+                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Avis</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Menu "Produits" avec group pour hover en desktop -->
+        <li class="relative group shadow-xl md:shadow-none">
+            <input type="checkbox" id="prod" class="hidden peer">
+            <label for="prod" class="h-10 md:h-16   text-gray-500 hover:text-white px-2 md:hover:underline underline-offset-8 flex items-center cursor-pointer block w-full">Produits</label>
+
+            <!-- Sous-menu : Visible au hover en desktop & au clic en mobile -->
+            <div class="hidden peer-checked:block md:group-hover:block space-y-4 md:space-y-2 md:rounded-tr md:rounded-b bg-white px-4 py-2 md:absolute md:top-full md:left-0 shadow-xl">
+                <div>
+                    <a href="{{ path('app_vaccines') }}" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Vaccins</a>
+                </div>
+                <div>
+                    <a href="{{ path('app_articles3') }}" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Publication Scientifique</a>
+                </div>
+                <div>
+                    <a href="#" class="border border-teal-900 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Prototype</a>
+                </div>
+            </div>
+        </li>
+
+        <li class = "h-10 md:h-16  text-gray-500 md:hover:underline underline-offset-8 hover:text-white px-2 flex items-center whitespace-nowrap shadow-xl md:shadow-none">
+            <a href="{{ path('app_about') }}">A propos</a>
+        </li>
+
+        <!-- Menu "Produits" avec group pour hover en desktop -->
+       <li class="relative group md:flex justify-center md:items-center">
+            <input type="checkbox" id="con" class="hidden peer">
+            <label for="con" class="h-10 md:h-16 hover:text-white px-2 flex items-center justify-center w-full text-center">
+                {% if app.user %}
+                    <span style="font-size: 1em; color: rgb(5, 97, 5);">
+                        <i class="fa-solid fa-user cursor-pointer w-16" title="Connecté"></i>
+                    </span>
+                {% else %}
+                    <div class="space-x-16 md:space-x-10">
+                    <!-- Lien vers la page de login -->
+                        <a href="{{ path('app_login') }}" class="cursor-pointer">
+                            <i class="fa fa-sign-in text-gray-500 hover:text-white text-xl" aria-hidden="true" title="Se connecter"></i>
+                        </a>
+
+                        <!-- Lien vers la page d'inscription -->
+                        <a href="{{ path('app_register') }}" class="cursor-pointer">
+                            <i class="fa-solid fa-user text-gray-500 hover:text-white text-xl" title="S'inscrire"></i>
+                        </a>
+                    </div>
+                {% endif %}
+            </label>
+
+            {% if app.user %}
+                <!-- Sous-menu : Visible au hover en desktop & au clic en mobile -->
+                <div class="hidden peer-checked:block md:group-hover:block space-y-4 md:space-y-2 md:rounded-b bg-teal-700 px-4 py-2 md:absolute md:top-full md:right-0">
+                    <div class="flex flex-col items-center space-y-4"> 
+                        <div >
+                            <p>Vous êtes connecté en tant que : <span class="text-gray-200">{{app.user.firstname}}</span></p>
+                        </div>
+
+                        <div class="italic">
+                            <p>{{app.user.email}}</p>
+                        </div>
+
+                        {# {% if is_granted('ROLE_ADMIN') %} #}
+                            <a href="{{ path('admin') }}" class="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+                                Administration
+                            </a>
+                        {# {% endif %} #}
+
+                        <a href="{{ path('app_logout') }}" class="cursor-pointer flex justify-center">
+                            <i class="fa fa-sign-out-alt text-white text-xl" aria-hidden="true" title="Se déconnecter"></i>
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        </li>
+    </ul>
+</div>
+
+<script>
+    window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+        document.getElementById("servicesToggle").checked = false;
+        document.getElementById("prod").checked = false;
+        document.getElementById("pay").checked = false;
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const prodCheckbox = document.getElementById("prod");
+    const payCheckbox = document.getElementById("pay");
+
+    prodCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+            payCheckbox.checked = false; // Ferme Payments si Produits est ouvert
+        }
+    });
+
+    payCheckbox.addEventListener("change", function () {
+        if (this.checked) {
+            prodCheckbox.checked = false; // Ferme Produits si Payments est ouvert
+        }
+    });
+
+    const menuToggle = document.getElementById("CloseOpenButton");
+        const menu = document.getElementById("menu");
+        const menuIcon = document.getElementById("menuIcon");
+        const closeIcon = document.getElementById("closeIcon");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("hidden");
+            menuIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+        });
+});
+</script>
+

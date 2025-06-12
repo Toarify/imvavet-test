@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Tous les Articles {% endblock %}
+
+{% block body %}
+<main class = "flex-grow">
+    <h1>Liste des Articles vvv</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        {% for article in articles %}
+            <div style="border: 1px solid #ddd; padding: 10px; width: 300px;">
+                <h2>{{ article.name|raw }}</h2>
+
+                {% if article.articleImages is not empty %}
+                    {% for image in article.articleImages %}
+                        <img src="{{ asset('uploads/images/article/' ~ image.imageName) }}" alt="Image de l'article" style="max-width: 100%;">
+                    {% endfor %}
+                {% else %}
+                    <p>Aucune image disponible.</p>
+                {% endif %}
+
+                <p><strong>Auteur :</strong> {{ article.details ? article.details.authors : 'Non renseigné' }}</p>
+                <p><strong>Date de publication :</strong> {{ article.details ? article.details.publicationDate|date('d/m/Y') : 'Non renseignée' }}</p>
+                <p><strong>Type :</strong> {{ article.type ? article.type : 'Non renseigné' }}</p>
+
+                <a href="{{ path('article_show', {id: article.id}) }}">Voir l'article</a>
+            </div>
+        {% endfor %}
+    </div>
+</main>
+    
+{% endblock %}

@@ -1,0 +1,223 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}imvavet{% endblock %}
+
+{% block body %}
+    <main id="main" data-name="title" class="flex-grow cursor-default bg-blue-900">
+        <div class="w-full max-w-6xl mx-auto bg-white rounded shadow mt-10 md:mt-20">
+            <!-- Onglets -->
+            <div class="w-full max-w-6xl mx-auto bg-white rounded shadow">
+                <!-- Onglets -->
+                <div class="flex flex-wrap border-b">
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab1"
+                    >
+                        Tous les vaccins
+                    </button>
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab2"
+                    >
+                        Aviaire
+                    </button>
+
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab3"
+                    >
+                        Porcine
+                    </button>
+
+                    <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab4"
+                    >
+                        Rimunant
+                    </button>
+                   
+                   <button
+                        class="tab-button flex-1 py-2 px-4 text-center text-gray-600 hover:bg-gray-200 active:bg-gray-300 border-b-2"
+                        data-tab="tab5"
+                    >
+                        Canine
+                    </button>
+
+                </div>
+
+                <!-- Contenus -->
+                <div class="p-8">
+                    <div class="tab-content hidden" id="tab1">    
+                        {% if vaccines is not empty %}
+                            <div class = "flex flex-wrap gap-2 justify-center">
+                                {% for vaccine in vaccines %}  
+                                    <a href="{{ path('vaccine_show', {id: vaccine.id}) }}" class="pb-4">
+                                        <div class="flex justify-center">
+                                                {% if vaccine.vaccineImages is not empty %}
+                                                    <img src="{{ asset('uploads/images/vaccine/' ~ vaccine.vaccineImages[0].imageName) }}" alt="Image du vaccin" style="max-width: 70%;" class="rounded hover:scale-105 transition-transform duration-300">
+                                                {% endif %}
+                                            </div>
+                                            <div class="flex justify-center mt-2">
+                                                {{ vaccine.name|raw }}
+                                            </div>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <p>Aucun vaccin trouvé.</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="tab-content hidden" id="tab2">    
+                        {% if vaccines is not empty %} 
+                            {% if gameAviaire is not empty %}
+                            <div class = "flex flex-wrap gap-2 justify-center">
+                                {% for vaccine in gameAviaire %}
+                                    <a href="{{ path('vaccine_show', {id: vaccine.id}) }}" class="pb-4">
+                                        <div class="flex justify-center">
+                                                {% if vaccine.vaccineImages is not empty %}
+                                                    <img src="{{ asset('uploads/images/vaccine/' ~ vaccine.vaccineImages[0].imageName) }}" alt="Image du vaccin" style="max-width: 70%;" class="rounded hover:scale-105 transition-transform duration-300">
+                                                {% endif %}
+                                            </div>
+                                            <div class="flex justify-center mt-2">
+                                                {{ vaccine.name|raw }}
+                                            </div>
+                                    </a>  
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                <p>Aucun vaccin de game aviaire trouvé.</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <div class="tab-content hidden" id="tab3">    
+                        {% if vaccines is not empty %} 
+                            {% if gamePorcine is not empty %}
+                            <div class = "flex flex-wrap gap-2 justify-center">
+                                {% for vaccine in gamePorcine %}
+                                    <a href="{{ path('vaccine_show', {id: vaccine.id}) }}" class="pb-4">
+                                        <div class="flex justify-center">
+                                                {% if vaccine.vaccineImages is not empty %}
+                                                    <img src="{{ asset('uploads/images/vaccine/' ~ vaccine.vaccineImages[0].imageName) }}" alt="Image du vaccin" style="max-width: 70%;" class="rounded hover:scale-105 transition-transform duration-300">
+                                                {% endif %}
+                                            </div>
+                                            <div class="flex justify-center mt-2">
+                                                {{ vaccine.name|raw }}
+                                            </div>
+                                    </a>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                <p>Aucun vaccin de game porcine trouvé.</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <div class="tab-content hidden" id="tab4">    
+                        {% if vaccines is not empty %} 
+                            {% if gameRimunant is not empty %}
+                            <div class = "flex flex-wrap gap-2 justify-center">
+                                {% for vaccine in gameRimunant %}
+                                <a href="{{ path('vaccine_show', {id: vaccine.id}) }}" class="pb-4">
+                                    <div class="flex justify-center">
+                                            {% if vaccine.vaccineImages is not empty %}
+                                                    <img src="{{ asset('uploads/images/vaccine/' ~ vaccine.vaccineImages[0].imageName) }}" alt="Image du vaccin" style="max-width: 70%;" class="rounded hover:scale-105 transition-transform duration-300">
+                                                {% endif %}
+                                        </div>
+                                        <div class="flex justify-center mt-2">
+                                            {{ vaccine.name|raw }}
+                                        </div>
+                                </a>  
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                <p>Aucun vaccin de game rimunat trouvé.</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <div class="tab-content hidden" id="tab5">    
+                        {% if vaccines is not empty %} 
+                            {% if gameCanine is not empty %}
+                            <div class = "flex flex-wrap gap-2 justify-center">
+                                {% for vaccine in gameCanine %}
+                                    <a href="{{ path('vaccine_show', {id: vaccine.id}) }}" class="pb-4">
+                                        <div class="flex justify-center">
+                                                {% if vaccine.vaccineImages is not empty %}
+                                                    <img src="{{ asset('uploads/images/vaccine/' ~ vaccine.vaccineImages[0].imageName) }}" alt="Image du vaccin" style="max-width: 70%;" class="rounded hover:scale-105 transition-transform duration-300">
+                                                {% endif %}
+                                            </div>
+                                            <div class="flex justify-center mt-2">
+                                                {{ vaccine.name|raw }}
+                                            </div>
+                                    </a>   
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                                <p>Aucun vaccin de game canine trouvé.</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Recomandations -->
+        <div class="w-full max-w-6xl mx-auto bg-white rounded shadow my-4">
+            <div class="px-2 flex items-center justify-center text-center h-16 font-bold">
+                Nos recommandations
+            </div>
+            <div class="px-3 md:px-6 text-justify indent-8 pb-1 md:pb-4">
+                <p>Tous les vaccins et réactifs livrés par nos laboratoires ont subi des contrôles d’innocuité, d’efficacité et de
+                    thermostabilité avant leur sortie, ceci pour offrir l’assurance qualité à notre clientèle.
+                    Toutefois, une conservation défectueuse peut en altérer la qualité entre la livraison et l’utilisation. En règle
+                    générale, tous nos produits doivent être conservés à la température du réfrigérateur (+4°C à +8°C) et à l’abri de
+                    la lumière.
+                    Il est donc recommandé aux utilisateurs de suivre strictement les indications données quant au mode de
+                    conservation, à la limite de péremption, à la technique d’utilisation des vaccins et aux rappels indispensables de
+                    vaccination.
+                    Il est demandé à tout utilisateur qui observerait une anomalie quelconque après l’inoculation d’un de ces vaccins
+                    d’en informer aussitôt le fournisseur, en indiquant le numéro du lot et les observations détaillées qui ont été
+                    faites à son sujet.
+                    Pour toutes informations supplémentaires, veuillez s’adresser à Ampandrianomby-Antananarivo ou aux
+                    Vétérinaires ou Responsables les plus proches.</p>
+            </div>
+        </div>
+
+    </main>
+
+     <script>
+    // Initialisation des onglets
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      // Fonction pour afficher un onglet
+      function showTab(tabId) {
+        tabContents.forEach((content) => {
+          content.classList.add("hidden");
+        });
+        document.getElementById(tabId).classList.remove("hidden");
+
+        tabButtons.forEach((button) => {
+          button.classList.remove("border-blue-500", "text-blue-500");
+        });
+        document.querySelector(`[data-tab="${tabId}"]`).classList.add("border-blue-500", "text-blue-500");
+      }
+
+      // Gestion des clics
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          const tabId = this.getAttribute("data-tab");
+          showTab(tabId);
+        });
+      });
+
+      // Afficher le premier onglet par défaut
+      showTab("tab1");
+    });
+  </script>
+{% endblock %}

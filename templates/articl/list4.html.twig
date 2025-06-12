@@ -1,0 +1,166 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles - IMVAVET{% endblock %}
+
+{% block body %}
+    <main id="main" data-name="title" class="bg-blue-900 min-h-[100vh]">
+        <div class="w-full max-w-6xl mx-auto bg-white rounded shadow mt-10 md:mt-20 mb-2 flex-grow flex flex-col">
+            <!-- Zone de recherche -->
+            <div class="p-4 border-b flex flex-col items-center">
+                <div class="w-full md:w-2/3 lg:w-1/2 flex flex-col items-center">
+                    <form id="search-form" class="w-full flex justify-center">
+                        <div class="relative w-full max-w-md">
+                            <input 
+                                type="text" 
+                                name="search" 
+                                id="search-input"
+                                placeholder="Rechercher ici..." 
+                                value="{{ searchTerm }}"
+                                class="w-full px-6 py-3 text-lg border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 shadow"
+                                autocomplete="off"
+                                style="height: 2.5rem;"
+                            >
+                        </div>
+                    </form>
+                    
+                    {% if searchTerm and articles|length > 0 %}
+                        <div class="mt-4 text-base text-gray-600 text-center">
+                            {% if articles.getTotalItemCount == 1 %}
+                                <span class="font-medium text-blue-600">{{ articles.getTotalItemCount }}</span> résultat trouvé pour 
+                                <span class="font-semibold text-blue-800">"{{ searchTerm }}"</span>
+                            {% else %}
+                                <span class="font-medium text-blue-600">{{ articles.getTotalItemCount }}</span> résultats trouvés pour 
+                                <span class="font-semibold text-blue-800">"{{ searchTerm }}"</span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Contenu des articles -->
+            <div class="p-4">
+                {% for article in articles %}
+                    <div class="border border-gray-200 m-4 bg-blue-50 rounded article-container relative min-h-[100px] flex flex-col">
+                        <div class="flex-grow flex items-center p-4">  {# Nouveau conteneur flex pour le centrage vertical #}
+                            {% set url = article.url %}
+                            {% set pdfFile = article.articleSources.first() %}
+
+                            {% if url %}
+                                <a href="{{ url }}" target="_blank" class="block w-full">
+                                    <div class="text-blue-500 cursor-pointer font-bold">
+                                        {{ article.getCleanName() }}
+                                    </div>
+                                </a>
+                            {% elseif pdfFile %}
+                                <a href="{{ asset('uploads/files/article/' ~ pdfFile.pdfName) }}" target="_blank" class="block w-full">
+                                    <div class="text-blue-500 cursor-pointer font-bold">
+                                        {{ article.getCleanName() }}
+                                    </div>
+                                </a>
+                            {% else %}
+                                <div class="font-bold w-full">
+                                    {{ article.getCleanName() }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="article-details hidden transition-all duration-300 ease-in-out px-4 pb-4">
+                            {% if article.articleImages is not empty %}
+                                <div class="flex overflow-x-auto pb-2">
+                                    <div class="flex flex-nowrap gap-2">
+                                        {% for image in article.articleImages %}
+                                            <div class="flex-shrink-0 h-32 w-auto">
+                                                <img src="{{ asset('uploads/images/article/' ~ image.imageName) }}" 
+                                                    alt="Image de l'article" 
+                                                    class="w-full h-full object-cover border rounded">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            <div class="flex w-full space-x-2 px-16 text-gray-500 text-sm italic mt-2">
+                                <div class="mx-4 whitespace-nowrap">Auteurs :</div>
+                                <div class="flex-grow">
+                                    {# {{ article.getCleanFirstAuthor() }}{% if article.getCleanOtherAuthor() %}, {{ article.getCleanOtherAuthor() }}{% endif %} #}
+                                    {{ article.getCleanFirstAuthor() }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="p-4 text-center text-gray-500">
+                        {% if searchTerm %}
+                            Aucun article trouvé pour "{{ searchTerm }}"
+                        {% else %}
+                            Aucun article disponible
+                        {% endif %}
+                    </div>
+                {% endfor %}   
+
+                {{ knp_pagination_render(articles, null, {}, {
+                    'query': {'search': searchTerm},
+                    'pageParameterName': 'page'
+                }) }}
+            </div>
+        </div>
+    </main>
+
+    <style>
+        .article-details {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 0.3s ease, height 0.3s ease;
+        }
+        .article-details.visible {
+            opacity: 1;
+            height: auto;
+        }
+    </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Gestion de la recherche
+        const searchInput = document.getElementById('search-input');
+        let searchTimeout;
+        
+        searchInput.addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const searchTerm = this.value.trim();
+                const url = new URL(window.location.href);
+                url.searchParams.set('page', '1');
+                if (searchTerm) {
+                    url.searchParams.set('search', searchTerm);
+                } else {
+                    url.searchParams.delete('search');
+                }
+                window.location.href = url.toString();
+            }, 500);
+        });
+
+        if ('{{ searchTerm }}') {
+            searchInput.focus();
+            searchInput.setSelectionRange(searchInput.value.length, searchInput.value.length);
+        }
+
+        // Gestion du survol des articles
+        const articleContainers = document.querySelectorAll('.article-container');
+        
+        articleContainers.forEach(container => {
+            const details = container.querySelector('.article-details');
+            
+            container.addEventListener('mouseenter', () => {
+                details.classList.remove('hidden');
+                details.classList.add('visible');
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                details.classList.remove('visible');
+                details.classList.add('hidden');
+            });
+        });
+    });
+    </script>
+{% endblock %}
