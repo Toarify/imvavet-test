@@ -50,7 +50,7 @@
             <!-- Sous-menu : Visible au hover en desktop & au clic en mobile -->
             <div class="hidden peer-checked:block md:group-hover:block space-y-4 md:space-y-2 md:rounded-tr md:rounded-b bg-white px-4 py-2 md:absolute md:top-full md:left-0 shadow-xl">
                 <div>
-                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Avis</a>
+                    <a href="#" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Avis</a>
                 </div>
             </div>
         </li>
@@ -63,13 +63,13 @@
             <!-- Sous-menu : Visible au hover en desktop & au clic en mobile -->
             <div class="hidden peer-checked:block md:group-hover:block space-y-4 md:space-y-2 md:rounded-tr md:rounded-b bg-white px-4 py-2 md:absolute md:top-full md:left-0 shadow-xl">
                 <div>
-                    <a href="{{ path('app_vaccines') }}" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Vaccins</a>
+                    <a href="{{ path('app_vaccines') }}" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Vaccins</a>
                 </div>
                 <div>
-                    <a href="{{ path('app_articles3') }}" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Publication Scientifique</a>
+                    <a href="{{ path('app_articles3') }}" class="border border-teal-800 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Publication Scientifique</a>
                 </div>
                 <div>
-                    <a href="#" class="border border-teal-900 rounded md:border-0 px-2 py-1 hover:bg-teal-900 hover:text-white whitespace-nowrap">Prototype</a>
+                    <a href="#" class="border border-teal-900 rounded md:border-0 px-2 py-1 hover:text-blue-500 whitespace-nowrap">Prototype</a>
                 </div>
             </div>
         </li>
@@ -113,11 +113,11 @@
                             <p>{{app.user.email}}</p>
                         </div>
 
-                        {# {% if is_granted('ROLE_ADMIN') %} #}
+                         {% if is_granted('ROLE_ADMIN') %} #}
                             <a href="{{ path('admin') }}" class="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
                                 Administration
                             </a>
-                        {# {% endif %} #}
+                         {% endif %} #}
 
                         <a href="{{ path('app_logout') }}" class="cursor-pointer flex justify-center">
                             <i class="fa fa-sign-out-alt text-white text-xl" aria-hidden="true" title="Se déconnecter"></i>

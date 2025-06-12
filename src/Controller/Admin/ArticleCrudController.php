@@ -119,11 +119,11 @@ class ArticleCrudController extends AbstractCrudController
             //     ->setCustomOption('linkable', false); // Désactive le lien
 
             $fields[] = TextField::new('updatedBy', 'Modifié par')
-    ->setVirtual(true)
-    ->formatValue(function ($value, $entity) {
-        $user = $entity->getUpdatedBy();
-        return $user ? $user->getFirstname() . ' ' . $user->getLastname() : 'Aucun(e)';
-    });
+            ->setVirtual(true)
+            ->formatValue(function ($value, $entity) {
+                $user = $entity->getUpdatedBy();
+                return $user ? $user->getFirstname() . ' ' . $user->getLastname() : 'Aucun(e)';
+            });
 
             $fields[] = DateTimeField::new('updatedAt')
                 ->setLabel('Date de modification')
