@@ -19,7 +19,7 @@ class ArticleSourceType extends AbstractType
             'download_uri' => false,
             'constraints' => [
                 new File([
-                    'maxSize' => '5M',
+                    'maxSize' => '30M',
                     'mimeTypes' => [
                         'application/pdf', 
                         'application/x-pdf'
